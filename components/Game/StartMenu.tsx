@@ -6,8 +6,8 @@ interface StartMenuProps {
 
 export function StartMenu({ onStart }: StartMenuProps) {
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black">
-      <div className="max-w-3xl w-full mx-4 text-center">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black overflow-y-auto">
+      <div className="max-w-3xl w-full mx-4 text-center py-12">
         <h1 className="text-6xl md:text-8xl font-bold text-white mb-4 tracking-tight">VIRTUAL GALLERY</h1>
 
         <div className="w-24 h-1 bg-white mx-auto mb-12"></div>
