@@ -1,11 +1,18 @@
 "use client"
 
+import dynamic from "next/dynamic"
 import { Suspense } from "react"
-import { Canvas } from "@react-three/fiber"
 import { Loader } from "@react-three/drei"
-import { Scene } from "@/components/Game/Scene"
 import { GameUI } from "@/components/Game/GameUI"
 import { TransitionOverlay } from "@/components/Game/TransitionOverlay"
+
+const Canvas = dynamic(() => import("@react-three/fiber").then((mod) => mod.Canvas), {
+  ssr: false,
+})
+
+const Scene = dynamic(() => import("@/components/Game/Scene").then((mod) => ({ default: mod.Scene })), {
+  ssr: false,
+})
 
 export default function Page() {
   return (
