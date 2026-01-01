@@ -27,8 +27,7 @@ export default function Page() {
 
   return (
     <div className="w-full h-screen bg-[#f0f0f0] overflow-hidden font-sans select-none">
-      {!gameStarted && <StartMenu onStart={startGame} />}
-      <GameWrapper />
+      {!gameStarted ? <StartMenu onStart={startGame} /> : <GameWrapper />}
     </div>
   )
 }
