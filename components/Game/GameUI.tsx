@@ -93,7 +93,7 @@ export const GameUI = () => {
                 <img
                   src={activeArt.url || "/placeholder.svg"}
                   alt={activeArt.title}
-                  className="max-h-full max-w-full object-contain"
+                  className="max-h-full max-w-full object-contain grayscale"
                 />
               </div>
 
