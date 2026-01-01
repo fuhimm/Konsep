@@ -90,11 +90,13 @@ interface GameState {
   isTransitioning: boolean
   activeArtworkId: string | null
   isDetailOpen: boolean
+  gameStarted: boolean
 
   setCurrentScene: (scene: GameScene) => void
   setTransitioning: (isTransitioning: boolean) => void
   setActiveArtwork: (id: string | null) => void
   setDetailOpen: (isOpen: boolean) => void
+  startGame: () => void
 }
 
 export const useGameStore = create<GameState>((set) => ({
@@ -102,9 +104,11 @@ export const useGameStore = create<GameState>((set) => ({
   isTransitioning: false,
   activeArtworkId: null,
   isDetailOpen: false,
+  gameStarted: false,
 
   setCurrentScene: (scene) => set({ currentScene: scene }),
   setTransitioning: (isTransitioning) => set({ isTransitioning: isTransitioning }),
   setActiveArtwork: (id) => set({ activeArtworkId: id }),
   setDetailOpen: (isOpen) => set({ isDetailOpen: isOpen }),
+  startGame: () => set({ gameStarted: true }),
 }))
