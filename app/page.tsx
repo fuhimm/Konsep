@@ -8,6 +8,7 @@ import { GameUI } from "@/components/Game/GameUI"
 import { TransitionOverlay } from "@/components/Game/TransitionOverlay"
 import { StartMenu } from "@/components/Game/StartMenu"
 import { useGameStore } from "@/components/Game/store"
+import ClientOnly from "@/components/Game/ClientOnly"
 
 export const dynamic = "force-dynamic"
 
@@ -30,18 +31,20 @@ export default function Page() {
     <div className="w-full h-screen bg-[#f0f0f0] overflow-hidden font-sans select-none">
       {!gameStarted && <StartMenu onStart={startGame} />}
 
-      <Suspense fallback={null}>
-        <Canvas shadows camera={{ position: [0, 5, 10], fov: 50 }}>
-          <color attach="background" args={["#f0f0f0"]} />
-          <fog attach="fog" args={["#f0f0f0", 5, 30]} />
+      <ClientOnly>
+        <Suspense fallback={null}>
+          <Canvas shadows camera={{ position: [0, 5, 10], fov: 50 }}>
+            <color attach="background" args={["#f0f0f0"]} />
+            <fog attach="fog" args={["#f0f0f0", 5, 30]} />
 
-          <Scene />
-        </Canvas>
-      </Suspense>
+            <Scene />
+          </Canvas>
+        </Suspense>
 
-      <GameUI />
-      <TransitionOverlay />
-      <Loader />
+        <GameUI />
+        <TransitionOverlay />
+        <Loader />
+      </ClientOnly>
     </div>
   )
 }
