@@ -49,6 +49,7 @@
     "expo-asset": "latest",
     "expo-file-system": "latest",
     "expo-gl": "latest",
+    "figma:asset": "latest",
     "immer": "latest",
     "input-otp": "^1.4.2",
     "jiti": "latest",
